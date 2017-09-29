@@ -1,8 +1,11 @@
 from fabric.contrib.files import append, exists, sed
 from fabric.api import env, local, run
+from fabric.network import ssh
 import random
 
 REPO_URL = 'https://github.com/albert-han/tdd.git'
+
+ssh.util.log_to_file("paramiko.log", 10)
 
 def deploy():
 	site_folder = f'/home/{env.user}/sites/{env.host}'
